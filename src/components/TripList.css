@@ -1,0 +1,18 @@
+.trip-list{
+    width:480px;
+    margin: 60px auto;
+}
+
+.trip-list ul{
+    padding: 0;
+}
+
+.trip-list li{
+    padding: 20px;
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+}
