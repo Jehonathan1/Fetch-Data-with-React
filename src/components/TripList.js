@@ -7,14 +7,15 @@ import './TripList.css'
 const TripList = () => {
 
     const [trips, setTrips] = useState([])
+    const [url, setUrl] = useState('http://localhost:3000/trips')
 
     useEffect(() => {
 
-        fetch('http://localhost:3000/trips') // fetch data from db.json
+        fetch(url) // fetch data from db.json
             .then(response => response.json()) // returns json data
             .then(json => setTrips(json)) // when there is data - update the state
 
-    }, []) // empty dependancy arry makes sure the function only runs once
+    }, [url]) // url as dependancy will make sure we update the state every time there is a change in the url
 
     console.log(trips)
 
@@ -29,6 +30,14 @@ const TripList = () => {
                     </li>
                 ))}
             </ul>
+            <div className="filters">
+                <button className="btn1" onClick={() => setUrl('http://localhost:3000/trips?loc=europe')}>
+                    European Trips
+                </button>
+                <button className="btn2" onClick={() => setUrl('http://localhost:3000/trips')}>
+                    All Trips
+                </button>
+            </div>
         </div>
     )
 }

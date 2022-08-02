@@ -1,18 +1,37 @@
-.trip-list{
-    width:480px;
+.trip-list {
+    width: 480px;
     margin: 60px auto;
 }
 
-.trip-list ul{
+.trip-list ul {
     padding: 0;
 }
 
-.trip-list li{
+.trip-list li {
     padding: 20px;
     list-style-type: none;
-    border: 1px solid black;
+    border: 1px solid rgba(229, 188, 84, 0.9);
     border-radius: 5px;
     margin: 20px 0;
+    /* tell the browser to account for any border and padding in the values you specify for an element's width and height. */
     box-sizing: border-box;
-    box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trip-list button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+ .trip-list button:hover {
+    color: rgb(255, 255, 255);
+    background: rebeccapurple;
+
+}
+
