@@ -8,12 +8,13 @@ import './TripList.css'
 const TripList = () => {
 
     const [url, setUrl] = useState('http://localhost:3000/trips')
-    const { data:trips, pending } = useFetch(url) // rename the data into 'trips'
+    const { data:trips, pending, error } = useFetch(url) // rename the data into 'trips'
 
     return (
         <div className="trip-list">
             <h2>Trip List</h2>
             {pending && <div>Loading Data...</div>}
+            {error && <div>{error}</div>}
             <ul>
                 {trips && trips.map(trip => ( // use 'map' only if we have a value in trips
                     <li key={trip.id}>
