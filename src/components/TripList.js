@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 // style
 import './TripList.css'
@@ -9,13 +9,16 @@ const TripList = () => {
     const [trips, setTrips] = useState([])
     const [url, setUrl] = useState('http://localhost:3000/trips')
 
+    // Create an async function that will be used inside useEffect()
+    const fetchTrips = useCallback(async () => {
+        const response = await fetch(url)
+        const json = await response.json()
+        setTrips(json)
+    }, [url])
+
     useEffect(() => {
-
-        fetch(url) // fetch data from db.json
-            .then(response => response.json()) // returns json data
-            .then(json => setTrips(json)) // when there is data - update the state
-
-    }, [url]) // url as dependancy will make sure we update the state every time there is a change in the url
+        fetchTrips()
+    }, [fetchTrips]) // url as dependancy will make sure we update the state every time there is a change in the url
 
     console.log(trips)
 
